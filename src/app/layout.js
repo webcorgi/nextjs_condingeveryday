@@ -1,7 +1,8 @@
 import "./globals.css";
 import Link from 'next/link'
 import { Control } from "./Control";
-import connection from "@/lib/mysql";
+import { createFile } from "./api/create-file";
+import { mysqlConnection } from "./api/mysql-connection";
 
 export const metadata = {
   title: 'WEB tutorial',
@@ -9,19 +10,18 @@ export const metadata = {
 }
 export default async function RootLayout({ children, topics }) {
   // nextjs는 fetch시 모두 캐시되므로, 글 생성후 새로운 목록을 가져오려면 캐시하지 않아야한다. 그래서 'no-cache'를 넣어줌.
-  /* const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}topics/`, {cache:'no-cache'})
-  const topics = await resp.json(); */
+  // const resp = await fetch(`${process.env.NEXT_PUBLIC_API_URL}topics/`, {cache:'no-cache'})
+  // const topics = await resp.json();
 
-  /* mysql */
-  const [rows, fields] = await connection.query(
-    'SELECT * FROM topics'
-  );
-  // const topics = await rows.json()
-  console.log("🚀 ~ TopicsPage ~ rows:", rows)
+  /* mysql 연결 */
+  // const rows = await mysqlConnection()
+
 
   return (
     <html>
       <body>
+        <h3><Link href="/learning">Go To Learning</Link></h3>
+
         <h1><Link href="/">WEB</Link></h1>
         {/* <ol>
           {
@@ -33,16 +33,16 @@ export default async function RootLayout({ children, topics }) {
           }
         </ol> */}
         <ol>
-          {
+          {/* {
             rows.map(topic=> {
               return <li key={topic.id}>
                 <Link href={`/read/${topic.id}`}>{topic.title}</Link>
               </li>
             })
-          }
+          } */}
         </ol>
         {children}
-        <Control />
+        {/* <Control /> */}
       </body>
     </html>
   )

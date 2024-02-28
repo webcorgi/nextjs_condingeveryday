@@ -1,3 +1,10 @@
+/* 리다이렉트 */
+import { redirect } from 'next/navigation'
+export function activeRedirect(){
+    redirect('/login')
+}
+
+
 /* 
 // 글 목록 읽기
 export async function readAll(){
