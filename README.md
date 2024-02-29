@@ -1,5 +1,6 @@
-# 생활코딩 예제
+# 생활코딩 예제 + nextjs 공식문서 학습
 - https://opentutorials.org/course/5098/32347
+- https://nextjs.org/docs
 
 #### 배포버전 실행
 ```
