@@ -14,9 +14,6 @@ export function RoutingLinkingAndNavigating() {
     const pathname = usePathname()
     const router = useRouter()
 
-    {/* redirect 기능 */}
-    //  redirect('/login')
-
     /* window.history.pushState (페이지를 리로드하지 않고 페이지 주소만 변경) */
     const searchParams = useSearchParams()
     function updateSorting(sortOrder) {

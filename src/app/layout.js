@@ -1,6 +1,6 @@
 import "./globals.css";
 import Link from 'next/link'
-import { Control } from "./Control";
+import { Control } from "@/app/Control";
 import { createFile } from "./api/create-file";
 import { mysqlConnection } from "./api/mysql-connection";
 
@@ -42,7 +42,7 @@ export default async function RootLayout({ children, topics }) {
           } */}
         </ol>
         {children}
-        {/* <Control /> */}
+        <Control />
       </body>
     </html>
   )
